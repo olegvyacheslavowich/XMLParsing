@@ -9,7 +9,11 @@ import java.util.Comparator;
 /**
  * Created by Олег on 01.02.2017.
  */
-public class BouquetInfo implements Present {
+
+/**
+ * Сервис для работы над букетом (Bouquet)
+ */
+public class BouquetInfo implements Present, Comparator<Flower> {
 
     private Bouquet bouquet;
 
@@ -37,29 +41,20 @@ public class BouquetInfo implements Present {
 
 
     @Override
-    public void sort() {
-        bouquet.getFlowers().sort(compareByLifetime);
-    }
+    public ArrayList find(int fromNum, int toNum) {
 
-    @Override
-    public String find(int fromNum, int toNum) {
-
-        String answer = "";
-
+        ArrayList resultFlower = new ArrayList<>();
         for (Flower flower : bouquet.getFlowers()) {
-            if (flower.getLength() >= fromNum && flower.getLength() <=toNum){
-                answer += flower.toString() + "\n";
+            if (flower.getLength() >= fromNum && flower.getLength() <= toNum) {
+                resultFlower.add(flower);
             }
         }
-        return answer;
+        return resultFlower;
     }
 
-    private Comparator<Flower> compareByLifetime = new Comparator<Flower>() {
-        @Override
-        public int compare(Flower flwr1, Flower flwr2) {
-            return flwr1.getLifetime() - flwr2.getLifetime();
-        }
-    };
+    public Bouquet getBouquet() {
+        return bouquet;
+    }
 
     @Override
     public String toString() {
@@ -76,4 +71,11 @@ public class BouquetInfo implements Present {
                 " Упаковка: " + bouquet.getPackaging().getType() + "\n" +
                 " Цена букета = " + price();
     }
+
+
+    @Override
+    public int compare(Flower o1, Flower o2) {
+        return o1.getLifetime() - o2.getLifetime();
+    }
+
 }

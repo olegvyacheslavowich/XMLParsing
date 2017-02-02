@@ -5,6 +5,8 @@ import karpenko.com.main.Orchid;
 import karpenko.com.main.Rose;
 import karpenko.com.main.Tulip;
 
+import java.util.ArrayList;
+
 /**
  * Created by Олег on 01.02.2017.
  */
@@ -44,11 +46,7 @@ public class FlowerInfo implements Present {
     }
 
     @Override
-    public void sort() {
-    }
-
-    @Override
-    public String find(int fromNum, int toNum) {
+    public ArrayList find(int fromNum, int toNum) {
         return null;
     }
 

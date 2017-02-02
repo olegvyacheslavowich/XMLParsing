@@ -1,7 +1,5 @@
 package karpenko.com.main;
 
-import karpenko.com.service.FlowersColor;
-
 /**
  * Created by Олег on 31.01.2017.
  */
@@ -49,6 +47,7 @@ public class Tulip extends Flower {
                 "length=" + getLength() +
                 ",color='" + getColor()  +
                 ",lifetime=" + getLifetime() +
+                ", имеет аромат: " + smell() +
                 '}';
     }
 }

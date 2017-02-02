@@ -6,19 +6,22 @@ package karpenko.com.service;
 
 import java.util.ArrayList;
 
-/**
- * Интерфейс "Подарок" имеет два метода
- * compile - собирает букет из цветов и  упаковки
- * allPrice - возвращает цену за букет
- */
-public interface Present {
 
+interface Present {
 
-    public int price();
+    /**
+     *
+     * @return возвращает цену за букет
+     */
+    int price();
 
-    public void sort();
-
-    public String find(int fromNum, int toNum);
+    /**
+     *
+     * @param fromNum искать от
+     * @param toNum искать до
+     * @return возвращает найденные объекты в заданном диапазоне
+     */
+    ArrayList find(int fromNum, int toNum);
 
 
 }

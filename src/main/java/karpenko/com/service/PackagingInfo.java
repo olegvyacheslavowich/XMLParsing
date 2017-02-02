@@ -1,8 +1,12 @@
 package karpenko.com.service;
 
 import karpenko.com.main.Packaging;
+import karpenko.com.main.PackagingType;
+
+import java.util.ArrayList;
 
 /**
+ * Сервис для работы над упаковкой (Packaging)
  * Created by Олег on 01.02.2017.
  */
 public class PackagingInfo implements Present {
@@ -38,12 +42,7 @@ public class PackagingInfo implements Present {
     }
 
     @Override
-    public void sort() {
-
-    }
-
-    @Override
-    public String find(int fromNum, int toNum) {
+    public ArrayList find(int fromNum, int toNum) {
         return null;
     }
 

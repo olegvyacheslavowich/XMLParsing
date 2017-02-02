@@ -5,10 +5,19 @@ package karpenko.com.main;
  */
 public abstract class Flower {
 
+    /**
+     * название
+     */
     private String name;
 
+    /**
+     * цвет
+     */
     private String color;
 
+    /**
+     * время жизни цветка
+     */
     private int lifetime;
 
     /**
@@ -25,14 +34,14 @@ public abstract class Flower {
 
     }
 
+
     /**
      * метод описыват аромат цветка
-     *
      * @return
      */
     public abstract String smell();
 
-  
+
     public String getName() {
         return name;
     }

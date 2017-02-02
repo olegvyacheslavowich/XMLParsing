@@ -2,8 +2,7 @@ package karpenko.com.entity;
 
 
 import karpenko.com.main.*;
-import karpenko.com.service.*;
-import karpenko.com.service.PackagingsColor;
+import karpenko.com.service.BouquetInfo;
 
 import java.util.ArrayList;
 
@@ -17,7 +16,10 @@ import java.util.ArrayList;
 public class App {
     public static void main(String[] args) {
 
-        ArrayList<Flower> flowers = new ArrayList<Flower>();
+        /**
+         * Собираем цветы
+         */
+        ArrayList<Flower> flowers = new ArrayList<>();
 
         flowers.add(new Rose(30, FlowersColor.BLACK, 50));
         flowers.add(new Tulip(45, FlowersColor.YELLOW, 15));
@@ -25,24 +27,36 @@ public class App {
         flowers.add(new Rose(85, FlowersColor.RED, 17));
 
         for (Flower flower : flowers) {
-            System.out.println(flower.getColor() + " "
-                    + flower.getClass().getSimpleName()
-                    + " имеет " + flower.smell() +
-                    " аромат");
+            System.out.println(flower.toString());
         }
         System.out.println();
 
+        /**
+         * Берем одну из упаковок
+         */
         Packaging packaging = new Packaging(PackagingsColor.PINK, PackagingType.PAPER);
 
+        /**
+         * Заворачиваем цветы в упаковку и получаем букет
+         */
         Bouquet bouquet = new Bouquet(flowers, packaging);
 
         BouquetInfo bi = new BouquetInfo(bouquet);
-        bi.sort();
+
+        /**
+         * Сортируем по продолжительности жизни
+         */
+        bi.getBouquet().getFlowers().sort(bi);
         System.out.println(bi.toString());
 
         System.out.println();
 
-        System.out.println(bi.find(10, 30));
+        /**
+         * Выводим найденые цветы с длиной стебля в заданном промежутке
+         */
+        for (Object flower :bi.find(45, 60)) {
+            System.out.println(flower.toString());
+        }
 
     }
 }

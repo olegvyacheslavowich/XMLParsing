@@ -46,7 +46,8 @@ public class App {
         /**
          * Сортируем по продолжительности жизни
          */
-        bi.getBouquet().getFlowers().sort(bi);
+
+        bi.getBouquet().getFlowers().sort(new BouquetInfo.BouquetComparator());
         System.out.println(bi.toString());
 
         System.out.println();

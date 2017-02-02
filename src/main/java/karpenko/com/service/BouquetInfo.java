@@ -13,7 +13,7 @@ import java.util.Comparator;
 /**
  * Сервис для работы над букетом (Bouquet)
  */
-public class BouquetInfo implements Present, Comparator<Flower> {
+public class BouquetInfo implements Present {
 
     private Bouquet bouquet;
 
@@ -72,10 +72,14 @@ public class BouquetInfo implements Present, Comparator<Flower> {
                 " Цена букета = " + price();
     }
 
+    /**
+     * класс переопределяющий метод compare для сортировки по времени жизни цветка
+     */
+    static public class BouquetComparator implements Comparator<Flower> {
 
-    @Override
-    public int compare(Flower o1, Flower o2) {
-        return o1.getLifetime() - o2.getLifetime();
+        @Override
+        public int compare(Flower o1, Flower o2) {
+            return o1.getLifetime() - o2.getLifetime();
+        }
     }
-
 }

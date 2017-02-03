@@ -8,7 +8,7 @@ public interface FlowersColor {
 
     String RED = "Red";
 
-    String WHITE = "While";
+    String WHITE = "White";
 
     String BLACK = "Black";
 

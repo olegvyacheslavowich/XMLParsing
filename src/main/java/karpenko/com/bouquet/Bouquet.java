@@ -1,4 +1,7 @@
-package karpenko.com.main;
+package karpenko.com.bouquet;
+
+import karpenko.com.flowers.Flower;
+import karpenko.com.packaging.Packaging;
 
 import java.util.ArrayList;
 
@@ -26,5 +29,13 @@ public final class Bouquet {
 
     public Packaging getPackaging() {
         return packaging;
+    }
+
+    @Override
+    public String toString() {
+        return "Bouquet{\n" +
+                "flowers=" + flowers +
+                ", \nPackaging= {" + packaging +
+                "}";
     }
 }

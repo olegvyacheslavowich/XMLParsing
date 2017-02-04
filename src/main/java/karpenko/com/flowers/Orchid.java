@@ -1,4 +1,6 @@
-package karpenko.com.main;
+package karpenko.com.flowers;
+
+import karpenko.com.flowers.Flower;
 
 /**
  * Created by Олег on 31.01.2017.
@@ -7,8 +9,12 @@ public class Orchid extends Flower {
 
     private static final String NAME = "Orchid";
 
+    private static final int LENGTH_THIRTY = 30;
+    private static final int LENGTH_FIFTY = 50;
+    private static final int LENGTH_SEVENTY = 70;
 
-    public Orchid(int length, String color, int lifetime) {
+
+    public Orchid(int length, FlowersColor color, int lifetime) {
 
         super(NAME, length, color, lifetime);
 
@@ -25,16 +31,16 @@ public class Orchid extends Flower {
         String smell = null;
 
         switch (getColor()) {
-            case FlowersColor.BLACK:
+            case BLACK:
                 smell = "Горький";
                 break;
-            case FlowersColor.RED:
+            case RED:
                 smell = "Одурманивающий";
                 break;
-            case FlowersColor.WHITE:
+            case WHITE:
                 smell = "Светлый";
                 break;
-            case FlowersColor.YELLOW:
+            case YELLOW:
                 smell = "Яблочный";
                 break;
         }
@@ -42,12 +48,24 @@ public class Orchid extends Flower {
     }
 
     @Override
+    public int price() {
+        int price = 0;
+        if (getLength() >= LENGTH_THIRTY && getLength() <= LENGTH_FIFTY) {
+            price = 600;
+        } else if (getLength() > LENGTH_FIFTY && getLength() <= LENGTH_SEVENTY) {
+            price = 700;
+        }
+        return price;
+    }
+
+
+    @Override
     public String toString() {
-        return "Orchid{" +
+        return "\nOrchid{" +
                 "length=" + getLength() +
-                ",color='" + getColor()  +
+                ",color='" + getColor() +
                 ",lifetime=" + getLifetime() +
                 ", имеет аромат: " + smell() +
-                '}';
+                "}";
     }
 }

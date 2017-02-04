@@ -1,4 +1,4 @@
-package karpenko.com.main;
+package karpenko.com.flowers;
 
 /**
  * Created by Олег on 31.01.2017.
@@ -13,7 +13,7 @@ public abstract class Flower {
     /**
      * цвет
      */
-    private String color;
+    private FlowersColor color;
 
     /**
      * время жизни цветка
@@ -25,7 +25,8 @@ public abstract class Flower {
      */
     private int length;
 
-    public Flower(String name, int length, String color, int lifetime) {
+
+    public Flower(String name, int length, FlowersColor color, int lifetime) {
 
         this.name = name;
         this.length = length;
@@ -34,12 +35,19 @@ public abstract class Flower {
 
     }
 
-
     /**
      * метод описыват аромат цветка
+     *
      * @return
      */
     public abstract String smell();
+
+    /**
+     * цена цветка в зависимости от вида и цвета
+     *
+     * @return цена
+     */
+    public abstract int price();
 
 
     public String getName() {
@@ -50,7 +58,7 @@ public abstract class Flower {
         return length;
     }
 
-    public String getColor() {
+    public FlowersColor getColor() {
         return color;
     }
 

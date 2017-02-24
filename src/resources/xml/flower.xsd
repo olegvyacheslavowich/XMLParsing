@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="www.ex.com/flower">
+
+    <xs:element name="flowers" type="flowers"/>
+
+    <xs:complexType name="flowers">
+        <xs:sequence>
+            <xs:element name="orchid" type="orchid" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="rose" type="rose" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="tulip" type="tulip" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="color">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Red"/>
+            <xs:enumeration value="White"/>
+            <xs:enumeration value="Yellow"/>
+            <xs:enumeration value="Black"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="flower">
+        <xs:sequence>
+            <xs:element name="color" type="color"/>
+            <xs:element name="lifetime" type="xs:int"/>
+            <xs:element name="length" type="xs:int"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="rose">
+        <xs:complexContent>
+            <xs:extension base="flower">
+                <xs:element name="name" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="tulip">
+        <xs:complexContent>
+            <xs:extension base="flower">
+                <xs:element name="name" type="xs:string" />
+            </xs:extension>
+        </xs:complexContent>
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="orchid">
+        <xs:complexContent>
+            <xs:extension base="flower">
+                <xs:element name="name" type="xs:string"/>
+            </xs:extension>
+        </xs:complexContent>
+        <xs:sequence>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

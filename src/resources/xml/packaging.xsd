@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<pack:schema xmlns:pack="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="www.ex.com/packaging">
+
+    <pack:element name="packaging" type="packaging"/>
+
+    <pack:complexType name="packaging">
+        <pack:sequence>
+            <pack:element name="type" type="type"/>
+            <pack:element name="color" type="color"/>
+        </pack:sequence>
+    </pack:complexType>
+
+    <pack:simpleType name="type">
+        <pack:restriction base="pack:string">
+            <pack:enumeration value="paper"/>
+            <pack:enumeration value="envelope"/>
+        </pack:restriction>
+    </pack:simpleType>
+
+    <pack:simpleType name="color">
+        <pack:restriction base="pack:string">
+            <pack:enumeration value="Blue"/>
+            <pack:enumeration value="White"/>
+            <pack:enumeration value="Pink"/>
+            <pack:enumeration value="Red"/>
+            <pack:enumeration value="Yellow"/>
+            <pack:enumeration value="Brown"/>
+        </pack:restriction>
+    </pack:simpleType>
+</pack:schema>

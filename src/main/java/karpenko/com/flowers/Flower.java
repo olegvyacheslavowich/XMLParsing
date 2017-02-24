@@ -25,6 +25,8 @@ public abstract class Flower {
      */
     private int length;
 
+    public Flower() {
+    }
 
     public Flower(String name, int length, FlowersColor color, int lifetime) {
 
@@ -64,5 +66,21 @@ public abstract class Flower {
 
     public int getLifetime() {
         return lifetime;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setColor(FlowersColor color) {
+        this.color = color;
+    }
+
+    public void setLifetime(int lifetime) {
+        this.lifetime = lifetime;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 }

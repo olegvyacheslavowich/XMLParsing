@@ -22,6 +22,10 @@ public class Tulip extends Flower {
 
     }
 
+    public Tulip() {
+
+    }
+
     /**
      * Возвращает запах в зависимости от цвета тюльпана
      *
@@ -62,11 +66,12 @@ public class Tulip extends Flower {
 
     @Override
     public String toString() {
-        return "\nTulip{" +
+        return "\nFlower{" +
+                "name=" + getName() +
                 "length=" + getLength() +
                 ",color='" + getColor() +
                 ",lifetime=" + getLifetime() +
-                ", имеет аромат: " + smell() +
+//                ", имеет аромат: " + smell() +
                 "}";
     }
 }

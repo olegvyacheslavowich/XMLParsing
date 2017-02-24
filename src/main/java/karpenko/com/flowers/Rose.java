@@ -13,9 +13,14 @@ public class Rose extends Flower {
     private static final int LENGTH_FORTY = 40;
     private static final int LENGTH_EIGHTY = 80;
 
+    public Rose() {
+        super();
+    }
+
     /**
      * сколько дней осталось до того, как цветы завянут
      */
+
 
 
     public Rose(int length, FlowersColor color, int lifetime) {
@@ -31,7 +36,7 @@ public class Rose extends Flower {
      */
     public String smell() {
 
-        String smell = null;
+        String smell = "Без аромата";
         switch (getColor()) {
             case BLACK:
                 smell = "Сладкий";
@@ -63,11 +68,12 @@ public class Rose extends Flower {
 
     @Override
     public String toString() {
-        return "\nRose{" +
+        return "\nFlower{" +
+                "name=" + getName() +
                 "length=" + getLength() +
                 ",color='" + getColor() +
                 ",lifetime=" + getLifetime() +
-                ", имеет аромат: " + smell() +
+           //     ", имеет аромат: " + smell() +
                 "}";
     }
 }

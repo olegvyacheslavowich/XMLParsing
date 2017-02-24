@@ -14,11 +14,16 @@ public class Orchid extends Flower {
     private static final int LENGTH_SEVENTY = 70;
 
 
+    public Orchid() {
+    }
+
     public Orchid(int length, FlowersColor color, int lifetime) {
 
         super(NAME, length, color, lifetime);
 
     }
+
+
 
     /**
      * Возвращает запах в зависимости от цвета орхидеи
@@ -61,11 +66,12 @@ public class Orchid extends Flower {
 
     @Override
     public String toString() {
-        return "\nOrchid{" +
+        return "\nFlower{" +
+                "name=" + getName() +
                 "length=" + getLength() +
                 ",color='" + getColor() +
                 ",lifetime=" + getLifetime() +
-                ", имеет аромат: " + smell() +
+//                ", имеет аромат: " + smell() +
                 "}";
     }
 }

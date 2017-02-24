@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bouq:schema xmlns:bouq="http://www.w3.org/2001/XMLSchema"
+             targetNamespace="http://www.ex.com/bouquet">
+
+    <bouq:include schemaLocation="flower.xsd"/>
+    <bouq:include schemaLocation="packaging.xsd"/>
+
+    <bouq:element name="bouquets" type="bouquet"/>
+
+    <bouq:complexType name="bouquet">
+        <bouq:sequence>
+            <bouq:element name="flowers" type="flowers"/>
+            <bouq:element name="packaging" type="packaging"/>
+        </bouq:sequence>
+    </bouq:complexType>
+
+
+</bouq:schema>
+

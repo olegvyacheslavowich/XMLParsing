@@ -25,7 +25,7 @@
         <module name="oopConcept" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.8">
       <module name="oopConcept" target="1.8" />
     </bytecodeTargetLevel>
   </component>

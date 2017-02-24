@@ -9,12 +9,16 @@ public class Packaging {
 
     private PackagingsColor color;
 
+    public Packaging() {
+
+    }
 
     public Packaging(PackagingsColor color, PackagingsType type) {
 
         this.color = color;
         this.type = type;
     }
+
 
     public int price() {
 
@@ -35,8 +39,16 @@ public class Packaging {
         return type;
     }
 
+    public void setType(PackagingsType type) {
+        this.type = type;
+    }
+
     public PackagingsColor getColor() {
         return color;
+    }
+
+    public void setColor(PackagingsColor color) {
+        this.color = color;
     }
 
     @Override

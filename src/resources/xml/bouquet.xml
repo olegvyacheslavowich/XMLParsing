@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<bouq:bouquets xmlns:bouq="http://www.ex.com/bouquet"
+<bouq:bouquet xmlns:bouq="http://www.ex.com/bouquet"
         xmlns:xs="www.ex.com/flower"
         xmlns:pack="www.ex.com/packaging"
                xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xsi:schemaLocation="http://www.ex.com/bouquet bouquet.xsd">
 
-
     <flowers>
+        <orchid>
+            <xs:color>Red</xs:color>
+            <lifetime>13</lifetime>
+            <length>70</length>
+            <name>Orchid</name>
+        </orchid>
         <rose>
-            <color>Black</color>
+            <xs:color>Black</xs:color>
             <lifetime>15</lifetime>
             <length>100</length>
             <name>Rose</name>
         </rose>
         <tulip>
-            <color>Yellow</color>
+            <xs:color>Yellow</xs:color>
             <lifetime>10</lifetime>
             <length>50</length>
             <name>Tulip</name>
         </tulip>
-        <orchid>
-            <color>Red</color>
-            <lifetime>13</lifetime>
-            <length>70</length>
-            <name>Orchid</name>
-        </orchid>
     </flowers>
-
     <packaging>
-        <pack:type>paper</pack:type>
+        <pack:type>envelope</pack:type>
         <pack:color>Brown</pack:color>
     </packaging>
 
-</bouq:bouquets>
+</bouq:bouquet>
 
 

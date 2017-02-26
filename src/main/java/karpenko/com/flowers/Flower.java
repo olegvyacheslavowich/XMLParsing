@@ -83,4 +83,27 @@ public abstract class Flower {
     public void setLength(int length) {
         this.length = length;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Flower flower = (Flower) o;
+
+        if (lifetime != flower.lifetime) return false;
+        if (length != flower.length) return false;
+        if (name != null ? !name.equals(flower.name) : flower.name != null) return false;
+        return color == flower.color;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = name != null ? name.hashCode() : 0;
+        result = 31 * result + (color != null ? color.hashCode() : 0);
+        result = 31 * result + lifetime;
+        result = 31 * result + length;
+        return result;
+    }
 }

@@ -57,5 +57,24 @@ public class Packaging {
                 ", color=" + color +
                 "}\n";
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Packaging packaging = (Packaging) o;
+
+        if (type != packaging.type) return false;
+        return color == packaging.color;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = type != null ? type.hashCode() : 0;
+        result = 31 * result + (color != null ? color.hashCode() : 0);
+        return result;
+    }
 }
 

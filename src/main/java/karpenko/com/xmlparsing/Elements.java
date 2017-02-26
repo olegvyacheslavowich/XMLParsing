@@ -5,11 +5,17 @@ package karpenko.com.xmlparsing;
  */
 public enum Elements {
     NAME("name"),
-    COLOR("color"),
+    COLOR("xs:color"),
     LIFETIME("lifetime"),
     LENGTH("length"),
     PACKCOLOR("pack:color"),
-    PACKTYPE("pack:type");
+    PACKTYPE("pack:type"),
+    ROSE("rose"),
+    TULIP("tulip"),
+    ORCHID("orchid"),
+    PACKAGING("packaging"),
+    BOUQUET ("bouquet"),
+    FLOWERS ("flowers");
 
     String element;
 

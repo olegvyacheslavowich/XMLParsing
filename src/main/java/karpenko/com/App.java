@@ -1,17 +1,13 @@
 package karpenko.com;
 
-import karpenko.com.bouquet.Bouquet;
-import karpenko.com.flowers.Flower;
-import karpenko.com.flowers.FlowersColor;
-import karpenko.com.service.BouquetService;
-import karpenko.com.xmlparsing.SAXBouquetParser;
-import org.xml.sax.SAXException;
+import karpenko.com.parsersfactory.impl.StAXFactory;
+import karpenko.com.starter.Start;
+import karpenko.com.xmlparsing.BouquetViewer;
+import karpenko.com.parsersfactory.ParsersFactory;
+import karpenko.com.parsersfactory.impl.SAXFactory;
 
-import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-import java.io.File;
-import java.io.IOException;
+import javax.xml.stream.XMLStreamException;
+import java.io.FileNotFoundException;
 
 ;
 
@@ -23,20 +19,9 @@ import java.io.IOException;
  * длин стеблей
  */
 public class App {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, XMLStreamException {
 
-        try {
-            SAXParserFactory factory = SAXParserFactory.newInstance();
-            SAXParser sax = factory.newSAXParser();
-            SAXBouquetParser saxParser = new SAXBouquetParser();
-            sax.parse(new File("src/resources/xml/bouquet.xml"), saxParser);
-
-            Bouquet bouquet = new Bouquet(saxParser.getFlowers(),saxParser.getPackaging());
-            System.out.println(bouquet.toString());
-
-        } catch (ParserConfigurationException | IOException | SAXException e) {
-            e.printStackTrace();
-        }
+        Start.compare();
 
     }
 }

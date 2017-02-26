@@ -1,9 +1,12 @@
-package karpenko.com.xmlparsing;
+package karpenko.com.xmlparsing.impl;
 
+import karpenko.com.bouquet.Bouquet;
 import karpenko.com.flowers.*;
 import karpenko.com.packaging.Packaging;
 import karpenko.com.packaging.PackagingsColor;
 import karpenko.com.packaging.PackagingsType;
+import karpenko.com.xmlparsing.BouquetViewer;
+import karpenko.com.xmlparsing.Elements;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
@@ -13,18 +16,19 @@ import java.util.ArrayList;
 /**
  * Created by Олег on 23.02.2017.
  */
-public class SAXBouquetParser extends DefaultHandler {
+public class SAXBouquetParser extends DefaultHandler implements BouquetViewer {
 
     private ArrayList<Flower> flowers = new ArrayList<>();
     private Flower flower = null;
     private Packaging packaging = null;
+    private Bouquet bouquet = null;
     private String tagName;
 
     @Override
     public void startElement(String uri, String localName, String qName, Attributes at) throws SAXException {
         tagName = qName;
-        if (BouquetConst.getName(qName) != null) {
-            switch (BouquetConst.getName(qName)) {
+        if (Elements.getElements(qName) != null) {
+            switch (Elements.getElements(qName)) {
                 case ORCHID:
                     flower = new Orchid();
                     break;
@@ -72,20 +76,20 @@ public class SAXBouquetParser extends DefaultHandler {
     @Override
     public void endElement(String uri, String localName, String qName) {
 
-        if (qName.equals(BouquetConst.ORCHID.getName()) ||
-                qName.equals(BouquetConst.ROSE.getName()) ||
-                qName.equals(BouquetConst.TULIP.getName())) {
+        if (qName.equals(Elements.ORCHID.getElement()) ||
+                qName.equals(Elements.ROSE.getElement()) ||
+                qName.equals(Elements.TULIP.getElement())) {
             flowers.add(flower);
         }
         tagName = null;
     }
 
-
-    public ArrayList<Flower> getFlowers() {
-        return flowers;
+    @Override
+    public void endDocument() throws SAXException {
+        bouquet = new Bouquet(flowers, packaging);
     }
 
-    public Packaging getPackaging() {
-        return packaging;
+    public Bouquet bouquetBuilder() {
+        return bouquet;
     }
 }

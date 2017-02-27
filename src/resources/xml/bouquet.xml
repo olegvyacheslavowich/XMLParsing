@@ -24,6 +24,18 @@
             <length>50</length>
             <name>Tulip</name>
         </tulip>
+        <rose>
+            <xs:color>White</xs:color>
+            <xs:lifetime>20</xs:lifetime>
+            <xs:length>85</xs:length>
+            <xs:name>White Rose</xs:name>
+        </rose>
+        <orchid>
+            <xs:color>White</xs:color>
+            <xs:lifetime>45</xs:lifetime>
+            <xs:length>80</xs:length>
+            <xs:name>White Orchid</xs:name>
+        </orchid>
     </flowers>
     <packaging>
         <pack:type>envelope</pack:type>

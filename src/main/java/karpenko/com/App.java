@@ -1,7 +1,6 @@
 package karpenko.com;
 
 import karpenko.com.starter.Start;
-
 import javax.xml.stream.XMLStreamException;
 import java.io.FileNotFoundException;
 

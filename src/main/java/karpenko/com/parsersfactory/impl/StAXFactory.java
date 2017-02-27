@@ -1,7 +1,7 @@
 package karpenko.com.parsersfactory.impl;
 
-import karpenko.com.xmlparsing.BouquetViewer;
 import karpenko.com.parsersfactory.ParsersFactory;
+import karpenko.com.xmlparsing.BouquetBuilder;
 import karpenko.com.xmlparsing.impl.StAXBouquetParser;
 
 /**
@@ -10,7 +10,7 @@ import karpenko.com.xmlparsing.impl.StAXBouquetParser;
 public class StAXFactory implements ParsersFactory {
 
     @Override
-    public BouquetViewer viewBouquet(String path) {
+    public BouquetBuilder viewBouquet(String path) {
         return new StAXBouquetParser(path);
     }
 }

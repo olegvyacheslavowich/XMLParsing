@@ -5,7 +5,7 @@ import karpenko.com.flowers.*;
 import karpenko.com.packaging.Packaging;
 import karpenko.com.packaging.PackagingsColor;
 import karpenko.com.packaging.PackagingsType;
-import karpenko.com.xmlparsing.BouquetViewer;
+import karpenko.com.xmlparsing.BouquetBuilder;
 import karpenko.com.xmlparsing.Elements;
 
 import javax.xml.stream.XMLInputFactory;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 /**
  * Created by Олег on 24.02.2017.
  */
-public class StAXBouquetParser  implements BouquetViewer {
+public class StAXBouquetParser  implements BouquetBuilder {
 
     private XMLInputFactory inputFactory;
     private String path;
@@ -30,7 +30,7 @@ public class StAXBouquetParser  implements BouquetViewer {
         this.path = path;
     }
 
-    public Bouquet bouquetBuilder() {
+    public Bouquet buildBouquet() {
 
         ArrayList<Flower> flowers = new ArrayList<>();
         Bouquet bouquet = new Bouquet();

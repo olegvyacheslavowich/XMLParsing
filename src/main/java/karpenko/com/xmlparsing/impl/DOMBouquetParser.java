@@ -5,7 +5,7 @@ import karpenko.com.flowers.*;
 import karpenko.com.packaging.Packaging;
 import karpenko.com.packaging.PackagingsColor;
 import karpenko.com.packaging.PackagingsType;
-import karpenko.com.xmlparsing.BouquetViewer;
+import karpenko.com.xmlparsing.BouquetBuilder;
 import karpenko.com.xmlparsing.Elements;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -23,7 +23,7 @@ import java.util.ArrayList;
 /**
  * Created by Олег on 25.02.2017.
  */
-public class DOMBouquetParser implements BouquetViewer {
+public class DOMBouquetParser implements BouquetBuilder {
 
     private DocumentBuilder docBuilder;
     private Element element;
@@ -40,7 +40,7 @@ public class DOMBouquetParser implements BouquetViewer {
         }
     }
 
-    public Bouquet bouquetBuilder() {
+    public Bouquet buildBouquet() {
 
         Document document;
         Bouquet bouquet = new Bouquet();
@@ -56,21 +56,22 @@ public class DOMBouquetParser implements BouquetViewer {
             NodeList flowersChildNList = elements.item(0).getChildNodes(); // получили детей flowers!
             for (int i = 0; i < flowersChildNList.getLength(); i++) {
                 String flwrsChild = flowersChildNList.item(i).getNodeName(); // проходимся по каждому ребенку
+                Node flwrsChildNode = flowersChildNList.item(i);
                 if (Elements.getElements(flwrsChild) != null) {
                     switch (Elements.getElements(flwrsChild)) {
                         case ROSE:
                             flower = new Rose();
-                            flower = flowerBuilder(flwrsChild, flower);
+                            flower = flowerBuilder(flwrsChildNode, flower);
                             flowers.add(flower);
                             break;
                         case TULIP:
                             flower = new Tulip();
-                            flower = flowerBuilder(flwrsChild, flower);
+                            flower = flowerBuilder(flwrsChildNode, flower);
                             flowers.add(flower);
                             break;
                         case ORCHID:
                             flower = new Orchid();
-                            flower = flowerBuilder(flwrsChild, flower);
+                            flower = flowerBuilder(flwrsChildNode, flower);
                             flowers.add(flower);
                             break;
                     }
@@ -94,11 +95,9 @@ public class DOMBouquetParser implements BouquetViewer {
         return bouquet;
     }
 
-    private Flower flowerBuilder(String child, Flower flower) {
+    private Flower flowerBuilder(Node child, Flower flower) {
 
-        NodeList flowersNList = element.getElementsByTagName(child);
-        NodeList flowersChildNList = flowersNList.item(0).getChildNodes(); // получили детей одного из цветков!
-
+        NodeList flowersChildNList = child.getChildNodes();
         for (int i = 0; i < flowersChildNList.getLength(); i++) {
             Node specificFlwrsChEl = flowersChildNList.item(i);
             String specificFlwrsChild = flowersChildNList.item(i).getNodeName();
@@ -106,19 +105,19 @@ public class DOMBouquetParser implements BouquetViewer {
             if (Elements.getElements(specificFlwrsChild) != null) {
                 switch (Elements.getElements(specificFlwrsChild)) {
                     case NAME:
-                        flower.setName(getTextFromXML(specificFlwrsChEl, Elements.NAME.getElement()));
+                        flower.setName(getTextFromXML(specificFlwrsChEl));
                         break;
                     case COLOR:
                         flower.setColor(FlowersColor.valueOf(
-                                getTextFromXML(specificFlwrsChEl, Elements.COLOR.getElement()).toUpperCase()));
+                                getTextFromXML(specificFlwrsChEl).toUpperCase()));
                         break;
                     case LENGTH:
                         flower.setLength(Integer.parseInt(
-                                getTextFromXML(specificFlwrsChEl, Elements.LENGTH.getElement())));
+                                getTextFromXML(specificFlwrsChEl)));
                         break;
                     case LIFETIME:
                         flower.setLifetime(Integer.parseInt(
-                                getTextFromXML(specificFlwrsChEl, Elements.LIFETIME.getElement())));
+                                getTextFromXML(specificFlwrsChEl)));
                         break;
                 }
             }
@@ -137,11 +136,11 @@ public class DOMBouquetParser implements BouquetViewer {
                 switch (Elements.getElements(packChildStr)) {
                     case PACKTYPE:
                         packaging.setType(PackagingsType.valueOf(
-                                getTextFromXML(packChild, packChildStr).toUpperCase()));
+                                getTextFromXML(packChild).toUpperCase()));
                         break;
                     case PACKCOLOR:
                         packaging.setColor(PackagingsColor.valueOf(
-                                getTextFromXML(packChild, packChildStr).toUpperCase()));
+                                getTextFromXML(packChild).toUpperCase()));
                         break;
                 }
             }
@@ -149,8 +148,7 @@ public class DOMBouquetParser implements BouquetViewer {
         return packaging;
     }
 
-    private String getTextFromXML(Node node, String elName) {
-
+    private String getTextFromXML(Node node) {
         return node.getTextContent();
     }
 }

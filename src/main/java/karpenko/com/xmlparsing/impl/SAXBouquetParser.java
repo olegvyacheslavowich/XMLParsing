@@ -5,7 +5,7 @@ import karpenko.com.flowers.*;
 import karpenko.com.packaging.Packaging;
 import karpenko.com.packaging.PackagingsColor;
 import karpenko.com.packaging.PackagingsType;
-import karpenko.com.xmlparsing.BouquetViewer;
+import karpenko.com.xmlparsing.BouquetBuilder;
 import karpenko.com.xmlparsing.Elements;
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -16,7 +16,7 @@ import java.util.ArrayList;
 /**
  * Created by Олег on 23.02.2017.
  */
-public class SAXBouquetParser extends DefaultHandler implements BouquetViewer {
+public class SAXBouquetParser extends DefaultHandler implements BouquetBuilder {
 
     private ArrayList<Flower> flowers = new ArrayList<>();
     private Flower flower = null;
@@ -89,7 +89,7 @@ public class SAXBouquetParser extends DefaultHandler implements BouquetViewer {
         bouquet = new Bouquet(flowers, packaging);
     }
 
-    public Bouquet bouquetBuilder() {
+    public Bouquet buildBouquet() {
         return bouquet;
     }
 }

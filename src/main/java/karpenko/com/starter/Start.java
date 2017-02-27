@@ -1,11 +1,9 @@
 package karpenko.com.starter;
 
-import karpenko.com.bouquet.Bouquet;
-import karpenko.com.parsersfactory.ParsersFactory;
 import karpenko.com.parsersfactory.impl.DOMFactory;
 import karpenko.com.parsersfactory.impl.SAXFactory;
 import karpenko.com.parsersfactory.impl.StAXFactory;
-import karpenko.com.xmlparsing.BouquetViewer;
+import karpenko.com.xmlparsing.BouquetBuilder;
 
 /**
  * Created by Олег on 26.02.2017.
@@ -13,23 +11,26 @@ import karpenko.com.xmlparsing.BouquetViewer;
 public class Start {
 
     private static final String path = "src/resources/xml/bouquet.xml";
+    private static final String saxEquallyStax = "SAXBouquet = STAXBouquet";
+    private static final String saxEquallyDom = "SAX_Bouquet = DOM_Bouquet";
+    private static final String domEquallyStax = "DOM_Bouquet = STAX_Bouquet";
 
     public static void compare() {
 
-        BouquetViewer viewSTAX = new StAXFactory().viewBouquet(path);
-        BouquetViewer viewSAX = new SAXFactory().viewBouquet(path);
-        BouquetViewer viewDOM = new DOMFactory().viewBouquet(path);
+        BouquetBuilder viewSTAX = new StAXFactory().viewBouquet(path);
+        BouquetBuilder viewSAX = new SAXFactory().viewBouquet(path);
+        BouquetBuilder viewDOM = new DOMFactory().viewBouquet(path);
 
-        if (viewSAX.bouquetBuilder().equals(viewSTAX.bouquetBuilder())) {
-            System.out.println("SAXBouquet = STAXBouquet");
+        if (viewSAX.buildBouquet().equals(viewSTAX.buildBouquet())) {
+            System.out.println(saxEquallyStax);
         }
 
-        if (viewSAX.bouquetBuilder().equals(viewDOM.bouquetBuilder())){
-            System.out.println("SAX_Bouquet = DOM_Bouquet");
+        if (viewSAX.buildBouquet().equals(viewDOM.buildBouquet())){
+            System.out.println(saxEquallyDom);
         }
 
-        if (viewDOM.bouquetBuilder().equals(viewSTAX.bouquetBuilder())){
-            System.out.println("DOM_Bouquet = STAX_Bouquet");
+        if (viewDOM.buildBouquet().equals(viewSTAX.buildBouquet())){
+            System.out.println(domEquallyStax);
 
         }
     }

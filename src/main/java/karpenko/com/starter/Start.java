@@ -21,6 +21,7 @@ public class Start {
         BouquetBuilder viewSAX = new SAXFactory().viewBouquet(path);
         BouquetBuilder viewDOM = new DOMFactory().viewBouquet(path);
 
+
         if (viewSAX.buildBouquet().equals(viewSTAX.buildBouquet())) {
             System.out.println(saxEquallyStax);
         }

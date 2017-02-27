@@ -26,15 +26,15 @@
         </tulip>
         <rose>
             <xs:color>White</xs:color>
-            <xs:lifetime>20</xs:lifetime>
-            <xs:length>85</xs:length>
-            <xs:name>White Rose</xs:name>
+            <lifetime>20</lifetime>
+            <length>85</length>
+            <name>White Rose</name>
         </rose>
         <orchid>
             <xs:color>White</xs:color>
-            <xs:lifetime>45</xs:lifetime>
-            <xs:length>80</xs:length>
-            <xs:name>White Orchid</xs:name>
+            <lifetime>45</lifetime>
+            <length>80</length>
+            <name>White Orchid</name>
         </orchid>
     </flowers>
     <packaging>
